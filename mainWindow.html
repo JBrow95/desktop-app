@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Game Share</title>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   <link rel="stylesheet" href="./style.css" />
+   <script src="./menuHandler.js"></script>
+</head>
+<body>
+        <div class="titlebar">
+                <ul class="left">
+                    <i class="fas fa-align-justify"></i>
+                    <li id="logo">Game Share</li>
+                </ul>
+
+                <ul class="right"> 
+                    <i id="red" class="fas fa-times"></i>
+                </ul>
+            </div>
+    <div class="wrapper">
+        <div class="column1">
+            <div class="welcome">
+                <h1>Horizonz</h1>
+                <img src="./profileavi.jpg" alt="" height="60px" width="60px">
+            </div>
+            <div class="sideNav">
+                <ul>
+                    <li id="active">Games</li>
+                    <li id="not">Clips</li>
+                    <li id="not">Messages</li>
+                </ul>
+            </div>
+        </div>
+        <div class="column2">
+            <div class="top">
+                <input type="text" placeholder="Search Game...">
+            </div>
+            <div class="bottom">
+                <h1>Your Library</h1>
+                <div class="cards-row">
+                    <div class="card">
+
+                    </div>
+                    <div class="card">
+                        
+                    </div>
+                    <div class="card">
+                        
+                    </div>
+                </div>
+                <div class="cards-row">
+                    <div class="card">
+                        
+                    </div>
+                    <div class="card">
+                        
+                    </div>
+                    <div class="card">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var win = remote.getCurrentWindow();
+
+        $('#red').click(function() {
+            win.close();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "electron-app",
+  "version": "1.0.0",
+  "description": "electron desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Justin Browning",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^4.0.5",
+    "jquery": "^3.3.1"
+  }
+}
