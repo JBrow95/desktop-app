@@ -35,7 +35,7 @@
                 <ul>
                     <li id="active">Games</li>
                     <li id="not">Clips</li>
-                    <li id="not">Messages</li>
+                    <li id="not" class="messageWindow">Messages</li>
                 </ul>
             </div>
         </div>
@@ -77,6 +77,18 @@
         $('#red').click(function() {
             win.close();
         });
+
+        const electron = require('electron')
+        const path = require('path')
+        const BrowserWindow = electron.remote.BrowserWindow
+        const messageWindow = document.querySelector('.messageWindow')
+         messageWindow.addEventListener('click', function (event) {
+            const modalPath = path.join('file://', __dirname, 'messageWindow.html')
+            let win = new BrowserWindow({ width: 400, height: 200 })
+            win.on('close', function () { win = null })
+            win.loadURL(modalPath)
+            win.show()
+        })
     </script>
 </body>
 </html>
