@@ -55,6 +55,27 @@ function createAddWindow(){
      addWindow.on('close', function(){
         addWindow = null;
      });
+     
+}
+
+function createMessageWindow(){
+    // creates new window
+    messageWindow = new BrowserWindow({
+        width: 300,
+        height: 200,
+        title: 'Messages'
+    });
+
+    addWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'messageWindow.html'),
+        protocol: 'file',
+        slashes: true
+    }));
+
+    // garbage collection
+    addWindow.on('close', function(){
+       addWindow = null;
+    });
 }
 
 
