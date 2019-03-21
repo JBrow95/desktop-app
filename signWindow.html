@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Sign In</title>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+   <!-- <link rel="stylesheet" href="./signin.css" /> -->
+   <script src="./menuHandler.js"></script>
+</head>
+<body>
+    <h1>Game Share Login</h1>
+    <button id="mainWindow">Log In</button>
+<script>
+
+
+
+    const electron = require('electron')
+        const path = require('path')
+        const BrowserWindow = electron.remote.BrowserWindow
+        const mainWindow = document.querySelector('#mainWindow')
+            mainWindow.addEventListener('click', function (event) {
+            const modalPath = path.join('file://', __dirname, 'mainWindow.html')
+            let win = new BrowserWindow({
+                width: 600,
+                height: 600,	      
+                minWidth: 1000,
+                minHeight: 600,
+                frame: false
+            })
+           
+            win.on('close', function () { win = null })
+            win.loadURL(modalPath)
+            mainWindow.once('ready-to-show', function(){
+                mainWindow.show();
+            });
+        })
+</script>
+</body>
+</html>

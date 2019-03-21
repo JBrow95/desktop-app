@@ -4,12 +4,13 @@ const path = require('path');
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
 
-let mainWindow;
+let signWindow;
+
 let addWindow;
 
 app.on('ready', function(){
     // creates new window
-    mainWindow = new BrowserWindow({
+    signWindow = new BrowserWindow({
         width: 600,
         height: 600,	      
         minWidth: 1000,
@@ -17,19 +18,19 @@ app.on('ready', function(){
         frame: false
     });
 
-    mainWindow.openDevTools({detach: true});
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'mainWindow.html'),
+    signWindow.openDevTools({detach: true});
+    signWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'signWindow.html'),
         protocol: 'file',
         slashes: true
     }));
 
-    mainWindow.once('ready-to-show', function(){
-        mainWindow.show();
+    signWindow.once('ready-to-show', function(){
+        signWindow.show();
     });
 
     // stop app when closed
-    mainWindow.on('closed', function(){
+    signWindow.on('closed', function(){
         app.quit();
     });
 
@@ -77,6 +78,32 @@ function createMessageWindow(){
     // garbage collection
     addWindow.on('close', function(){
        addWindow = null;
+    });
+}
+
+function mainWindow() {
+    mainWindow = new BrowserWindow({
+        width: 600,
+        height: 600,	      
+        minWidth: 1000,
+        minHeight: 600,
+        frame: false
+    });
+
+    mainWindow.openDevTools({detach: true});
+    mainWindow.loadURL(url.format({
+        pathname: path.join(__dirname, 'mainWindow.html'),
+        protocol: 'file',
+        slashes: true
+    }));
+
+    mainWindow.once('ready-to-show', function(){
+        mainWindow.show();
+    });
+
+    // stop app when closed
+    mainWindow.on('closed', function(){
+        app.quit();
     });
 }
 
