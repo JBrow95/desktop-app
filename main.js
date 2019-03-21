@@ -10,8 +10,10 @@ let addWindow;
 app.on('ready', function(){
     // creates new window
     mainWindow = new BrowserWindow({
-        width: 1000,
-        height: 600,
+        width: 600,
+        height: 600,	      
+        minWidth: 1000,
+        minHeight: 600,
         frame: false
     });
 

@@ -9,10 +9,10 @@
 <body>
         <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
+                <a href="#">Account</a>
+                <a href="#">Messages</a>
+                <a href="#" class="friendsWindow">Friends</a>
+                <a href="#">Sign Out</a>
         </div>
 
         <div class="titlebar">
@@ -35,7 +35,7 @@
                 <ul>
                     <li id="active">Games</li>
                     <li id="not">Clips</li>
-                    <li id="not" class="messageWindow">Messages</li>
+                    <li id="not">Messages</li>
                 </ul>
             </div>
         </div>
@@ -81,10 +81,14 @@
         const electron = require('electron')
         const path = require('path')
         const BrowserWindow = electron.remote.BrowserWindow
-        const messageWindow = document.querySelector('.messageWindow')
-         messageWindow.addEventListener('click', function (event) {
-            const modalPath = path.join('file://', __dirname, 'messageWindow.html')
-            let win = new BrowserWindow({ width: 400, height: 200 })
+        const friendsWindow = document.querySelector('.friendsWindow')
+         friendsWindow.addEventListener('click', function (event) {
+            const modalPath = path.join('file://', __dirname, 'friendsWindow.html')
+            let win = new BrowserWindow({
+                width: 400, 
+                height: 400 
+                
+            })
             win.on('close', function () { win = null })
             win.loadURL(modalPath)
             win.show()
